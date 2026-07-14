@@ -521,6 +521,10 @@
       margin-top: 20px;
     }
 
+    .hidden-section {
+      display: none;
+    }
+
     .experience-list {
       display: flex;
       flex-direction: column;
@@ -737,13 +741,13 @@
             <span class="tag">Full-Stack</span>
             <span class="tag">Auth</span>
           </div>
-          <a href="#kp12-detail" class="btn btn-primary project-link">View More About This Project →</a>
+          <button type="button" class="btn btn-primary project-link" onclick="revealCaseStudy()">View More About This Project →</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="kp12-detail" class="case-study">
+  <section id="kp12-detail" class="case-study hidden-section">
     <div class="section-header reveal">
       <div class="section-tag">Case Study</div>
       <h2>Inside KP12 Performance</h2>
@@ -825,6 +829,13 @@
     }, { threshold: 0.15 });
 
     revealEls.forEach(el => observer.observe(el));
+
+    function revealCaseStudy() {
+      const section = document.getElementById('kp12-detail');
+      section.classList.remove('hidden-section');
+      section.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   </script>
 
 </body>
