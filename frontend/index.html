@@ -45,64 +45,6 @@
       text-decoration: none;
     }
 
-    /* ---------- NAVBAR ---------- */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background: rgba(18, 18, 18, 0.85);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .logo {
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 32px;
-    }
-
-    nav a {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      transition: color 0.25s ease;
-      position: relative;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.25s ease;
-    }
-
-    nav a:hover {
-      color: var(--text);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
     /* ---------- HERO ---------- */
     .hero {
       min-height: 100vh;
@@ -610,27 +552,12 @@
     }
 
     @media (max-width: 768px) {
-      header { padding: 18px 24px; }
-      nav ul { gap: 18px; }
       section { padding: 80px 24px; }
       .about-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="logo">Built<span>by</span>Gerald</div>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
   <section class="hero">
     <div class="hero-tag">Welcome to my portfolio</div>
