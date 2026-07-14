@@ -45,6 +45,14 @@
       text-decoration: none;
     }
 
+    button {
+      font-family: inherit;
+      appearance: none;
+      -webkit-appearance: none;
+      background: none;
+      cursor: pointer;
+    }
+
     /* ---------- HERO ---------- */
     .hero {
       min-height: 100vh;
@@ -101,6 +109,9 @@
       border-radius: 8px;
       font-weight: 600;
       font-size: 0.95rem;
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
       transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
       display: inline-block;
     }
@@ -123,6 +134,31 @@
     .btn-secondary:hover {
       transform: translateY(-3px);
       border-color: var(--accent);
+    }
+
+    .btn-collapse {
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn-collapse:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .btn-collapse {
+      background: transparent;
+      border: 1px solid #4b3a3a;
+      color: #d9a5a5;
+    }
+
+    .btn-collapse:hover {
+      transform: translateY(-3px);
+      border-color: #e57373;
+      background: rgba(229, 115, 115, 0.08);
+      color: #e57373;
     }
 
     .scroll-indicator {
@@ -450,6 +486,13 @@
 
     .case-text p {
       color: var(--text-muted);
+    }
+
+    .case-note {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #6b7280 !important;
+      margin-top: 10px;
     }
 
     .case-text-full {
@@ -867,16 +910,20 @@
       </div>
     </div>
 
-    <div class="case-block reveal">
-      <div class="case-text case-text-full">
+    <div class="case-block reveal reverse">
+      <div class="case-image">
+        <img src="images/kp12-client-management.png" alt="Employee dashboard showing client and athlete session tracking with personal details redacted">
+      </div>
+      <div class="case-text">
         <h3>Client & Athlete Management</h3>
         <p>Employees can also manage a roster of athletes tied to their account, track completed sessions, and reach clients directly by email — all built into the same login-protected dashboard, without needing a separate email client.</p>
+        <p class="case-note">Client names, ages, emails, and phone numbers are blacked out here to protect their privacy — the real dashboard displays them in full.</p>
       </div>
     </div>
 
     <div class="case-cta reveal">
       <a href="https://kp12performance.com" target="_blank" rel="noopener" class="btn btn-secondary">Visit Live Site →</a>
-      <button type="button" class="btn btn-secondary" onclick="toggleCaseStudy()">Collapse ↑</button>
+      <button type="button" class="btn btn-collapse" onclick="toggleCaseStudy()">Collapse ↑</button>
     </div>
   </section>
 
