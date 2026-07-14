@@ -521,6 +521,71 @@
       margin-top: 20px;
     }
 
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .experience-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 26px 30px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .experience-item:hover {
+      transform: translateX(4px);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .exp-header h3 {
+      font-size: 1.15rem;
+    }
+
+    .exp-date {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .exp-org {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .experience-item ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .experience-item li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .experience-item li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
     @media (max-width: 860px) {
       .case-block,
       .case-block.reverse {
@@ -556,6 +621,7 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -565,7 +631,7 @@
   <section class="hero">
     <div class="hero-tag">Welcome to my portfolio</div>
     <h1>Hi, I'm <span class="highlight">Gerald</span> —<br>I build things for the web.</h1>
-    <p>This is purely for entertainment, and a showcase of what I'm learning and building. Take a look around.</p>
+    <p>Computer Science student at Cal Poly Pomona with hands-on IT experience, building toward a career in IT and web development.</p>
     <div class="hero-buttons">
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -581,8 +647,8 @@
     <div class="about-grid reveal">
       <div class="about-photo">👋</div>
       <div>
-        <p>I'm a developer who enjoys building clean, functional, and thoughtful web experiences. I'm currently learning and experimenting with front-end design, animation, and interactivity.</p>
-        <p>This portfolio is a living project — I update it as I learn new skills and complete new builds. Feel free to explore my work below.</p>
+        <p>I'm a Computer Science student at California State Polytechnic University, Pomona, with hands-on experience in IT support and team leadership. I've spent the last couple years maintaining classroom technology, troubleshooting hardware and software issues, and teaching students the basics of coding.</p>
+        <p>I'm leaning toward a career that blends IT and web development — I like solving technical problems as much as I like building things people actually use, and this site is where I put both into practice.</p>
       </div>
     </div>
   </section>
@@ -593,12 +659,57 @@
       <h2>What I work with</h2>
     </div>
     <div class="skills-grid reveal">
-      <div class="skill-card"><div class="icon">🖥️</div>HTML</div>
-      <div class="skill-card"><div class="icon">🎨</div>CSS</div>
-      <div class="skill-card"><div class="icon">⚙️</div>JavaScript</div>
-      <div class="skill-card"><div class="icon">📱</div>Responsive Design</div>
-      <div class="skill-card"><div class="icon">🔧</div>Git & GitHub</div>
-      <div class="skill-card"><div class="icon">🚀</div>VS Code</div>
+      <div class="skill-card"><div class="icon">🖥️</div>HTML & CSS</div>
+      <div class="skill-card"><div class="icon">☕</div>Java</div>
+      <div class="skill-card"><div class="icon">🐍</div>Python</div>
+      <div class="skill-card"><div class="icon">🔧</div>IT Troubleshooting</div>
+      <div class="skill-card"><div class="icon">🌐</div>Networking</div>
+      <div class="skill-card"><div class="icon">🚀</div>Git & GitHub</div>
+      <div class="skill-card"><div class="icon">🤝</div>Leadership</div>
+      <div class="skill-card"><div class="icon">💬</div>Customer Support</div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-header reveal">
+      <div class="section-tag">Experience</div>
+      <h2>Where I've worked</h2>
+    </div>
+    <div class="experience-list reveal">
+      <div class="experience-item">
+        <div class="exp-header">
+          <h3>IT Internship</h3>
+          <span class="exp-date">2023 – 2025</span>
+        </div>
+        <p class="exp-org">Saint John Bosco High School, Bellflower</p>
+        <ul>
+          <li>Maintained and troubleshot technology in 25+ classrooms</li>
+          <li>Supported students and teachers with day-to-day tech issues</li>
+          <li>Updated software across printers, computers, and projectors</li>
+        </ul>
+      </div>
+      <div class="experience-item">
+        <div class="exp-header">
+          <h3>Coding Camp — Teacher Assistant</h3>
+          <span class="exp-date">2023 – 2024</span>
+        </div>
+        <p class="exp-org">Saint John Bosco High School, Bellflower</p>
+        <ul>
+          <li>Assisted with daily lectures and classroom management</li>
+          <li>Guided a class of 15+ young scholars through Python, including building their own games</li>
+        </ul>
+      </div>
+      <div class="experience-item">
+        <div class="exp-header">
+          <h3>Head Lifeguard & Swim Instructor</h3>
+          <span class="exp-date">2022 – 2023</span>
+        </div>
+        <p class="exp-org">YMCA, Paramount</p>
+        <ul>
+          <li>Directed coworkers across guarding and teaching assignments</li>
+          <li>Taught swimming fundamentals to students ages 10+</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -688,7 +799,7 @@
     </div>
     <div class="reveal">
       <p>Have a question, opportunity, or just want to say hi? Reach out — I'd love to hear from you.</p>
-      <a href="mailto:youremail@example.com" class="btn btn-primary">Say Hello</a>
+      <a href="mailto:geraldcgarcia7@gmail.com" class="btn btn-primary">Say Hello</a>
       <div class="social-links">
         <a href="#" title="GitHub">GH</a>
         <a href="#" title="LinkedIn">Li</a>
