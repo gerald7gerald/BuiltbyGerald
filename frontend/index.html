@@ -461,10 +461,161 @@
     .case-cta {
       text-align: center;
       margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     .hidden-section {
       display: none;
+    }
+
+    .contact-line {
+      color: var(--text) !important;
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    .contact-line a {
+      color: var(--accent);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s ease;
+    }
+
+    .contact-line a:hover {
+      border-color: var(--accent);
+    }
+
+    /* ---------- CONTACT MODAL ---------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-box {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      width: 100%;
+      max-width: 420px;
+      text-align: left;
+      animation: modalPop 0.3s ease;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes modalPop {
+      from { opacity: 0; transform: translateY(16px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-box h3 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .modal-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--text);
+      transform: rotate(90deg);
+    }
+
+    .modal-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .modal-icon {
+      font-size: 1.3rem;
+      width: 36px;
+      text-align: center;
+    }
+
+    .modal-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .modal-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .modal-value {
+      font-size: 0.95rem;
+      overflow-wrap: break-word;
+    }
+
+    .modal-copy {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .modal-copy:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .modal-copy.copied {
+      border-color: #4ade80;
+      color: #4ade80;
+    }
+
+    .modal-send {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
     }
 
     .experience-list {
@@ -580,6 +731,7 @@
       <div>
         <p>I'm a Computer Science student at California State Polytechnic University, Pomona, with hands-on experience in IT support and team leadership. I've spent the last couple years maintaining classroom technology, troubleshooting hardware and software issues, and teaching students the basics of coding.</p>
         <p>I'm leaning toward a career that blends IT and web development — I like solving technical problems as much as I like building things people actually use, and this site is where I put both into practice.</p>
+        <p class="contact-line">📞 (562) 521-2480 &nbsp;|&nbsp; ✉️ <a href="mailto:geraldcgarcia7@gmail.com">geraldcgarcia7@gmail.com</a></p>
       </div>
     </div>
   </section>
@@ -668,7 +820,7 @@
             <span class="tag">Full-Stack</span>
             <span class="tag">Auth</span>
           </div>
-          <button type="button" class="btn btn-primary project-link" onclick="revealCaseStudy()">View More About This Project →</button>
+          <button type="button" id="caseStudyToggle" class="btn btn-primary project-link" onclick="toggleCaseStudy()">View More About This Project →</button>
         </div>
       </div>
     </div>
@@ -720,6 +872,7 @@
 
     <div class="case-cta reveal">
       <a href="https://kp12performance.com" target="_blank" rel="noopener" class="btn btn-secondary">Visit Live Site →</a>
+      <button type="button" class="btn btn-secondary" onclick="toggleCaseStudy()">Collapse ↑</button>
     </div>
   </section>
 
@@ -730,7 +883,7 @@
     </div>
     <div class="reveal">
       <p>Have a question, opportunity, or just want to say hi? Reach out — I'd love to hear from you.</p>
-      <a href="mailto:geraldcgarcia7@gmail.com" class="btn btn-primary">Say Hello</a>
+      <button type="button" class="btn btn-primary" onclick="openContactModal()">Say Hello</button>
       <div class="social-links">
         <a href="#" title="GitHub">GH</a>
         <a href="#" title="LinkedIn">Li</a>
@@ -743,8 +896,69 @@
     &copy; <span id="year"></span> BuiltByGerald. All rights reserved.
   </footer>
 
+  <div id="contactModal" class="modal-overlay hidden-section" onclick="closeContactModalOnOverlay(event)">
+    <div class="modal-box">
+      <button type="button" class="modal-close" onclick="closeContactModal()">✕</button>
+      <h3>Let's connect</h3>
+      <p class="modal-sub">Reach out however's easiest for you.</p>
+
+      <div class="modal-row">
+        <div class="modal-icon">✉️</div>
+        <div class="modal-info">
+          <span class="modal-label">Email</span>
+          <span class="modal-value" id="emailValue">geraldcgarcia7@gmail.com</span>
+        </div>
+        <button type="button" class="modal-copy" onclick="copyToClipboard('emailValue', this)">Copy</button>
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-icon">📞</div>
+        <div class="modal-info">
+          <span class="modal-label">Phone</span>
+          <span class="modal-value" id="phoneValue">(562) 521-2480</span>
+        </div>
+        <button type="button" class="modal-copy" onclick="copyToClipboard('phoneValue', this)">Copy</button>
+      </div>
+
+      <a href="mailto:geraldcgarcia7@gmail.com" class="btn btn-primary modal-send">Open Email App →</a>
+    </div>
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function openContactModal() {
+      document.getElementById('contactModal').classList.remove('hidden-section');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeContactModal() {
+      document.getElementById('contactModal').classList.add('hidden-section');
+      document.body.style.overflow = '';
+    }
+
+    function closeContactModalOnOverlay(event) {
+      if (event.target.id === 'contactModal') {
+        closeContactModal();
+      }
+    }
+
+    function copyToClipboard(elementId, btn) {
+      const text = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeContactModal();
+    });
 
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -757,11 +971,21 @@
 
     revealEls.forEach(el => observer.observe(el));
 
-    function revealCaseStudy() {
+    function toggleCaseStudy() {
       const section = document.getElementById('kp12-detail');
-      section.classList.remove('hidden-section');
-      section.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const toggleBtn = document.getElementById('caseStudyToggle');
+      const isHidden = section.classList.contains('hidden-section');
+
+      if (isHidden) {
+        section.classList.remove('hidden-section');
+        section.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        toggleBtn.textContent = 'Hide Project Details ↑';
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        section.classList.add('hidden-section');
+        toggleBtn.textContent = 'View More About This Project →';
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   </script>
 
