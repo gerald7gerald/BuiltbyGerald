@@ -730,6 +730,88 @@
       color: var(--accent);
     }
 
+    /* ---------- RECOMMENDATION ---------- */
+    .rec-card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 56px 60px 44px;
+      max-width: 780px;
+      margin: 0 auto;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .rec-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      border-color: var(--accent);
+    }
+
+    .quote-mark {
+      position: absolute;
+      top: 8px;
+      left: 28px;
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      color: var(--accent);
+      opacity: 0.35;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .rec-text {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .rec-text:last-of-type {
+      margin-bottom: 8px;
+    }
+
+    .rec-signature {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sig-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text);
+    }
+
+    .sig-title {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .sig-link {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      width: fit-content;
+      border-bottom: 1px solid transparent;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .sig-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      .rec-card {
+        padding: 46px 26px 34px;
+      }
+    }
+
     @media (max-width: 860px) {
       .case-block,
       .case-block.reverse {
@@ -930,6 +1012,24 @@
     <div class="case-cta reveal">
       <a href="https://kp12performance.com" target="_blank" rel="noopener" class="btn btn-secondary">Visit Live Site →</a>
       <button type="button" class="btn btn-collapse" onclick="toggleCaseStudy()">Collapse ↑</button>
+    </div>
+  </section>
+
+  <section id="recommendation">
+    <div class="section-header reveal">
+      <div class="section-tag">Endorsement</div>
+      <h2>Letter of Recommendation</h2>
+    </div>
+    <div class="rec-card reveal">
+      <div class="quote-mark">“</div>
+      <p class="rec-text">To Whom It May Concern,</p>
+      <p class="rec-text">It has been an honor to have Gerald Garcia help me establish my sports performance business. Gerald successfully created and completed building a website for the company within a week. Within this time period, Gerald showed me professionalism, dedication, hard work, respect, and motivation. Anytime I asked for things I wanted for the website, Gerald was able to provide it. Although I sought out a simple project, he was able to go above and beyond to make the website stand out. Along with how fantastic the website looks, the website is very user friendly. Nothing is difficult to read or manage. Gerald created this website with the intent to make my job easier to manage. Not only does this website provide all important information to my clients, it saves me time, which I can focus on in other parts of the business. For anyone who is looking for a high quality and professional website, I firmly recommend Gerald Garcia to you.</p>
+      <p class="rec-text">Sincerely,</p>
+      <div class="rec-signature">
+        <span class="sig-name">Kyle Perera</span>
+        <span class="sig-title">Owner, KP12 Performance</span>
+        <a href="https://kp12performance.com" target="_blank" rel="noopener" class="sig-link">KP12Performance.com</a>
+      </div>
     </div>
   </section>
 
